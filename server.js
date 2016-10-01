@@ -2,21 +2,24 @@
 const express = require( "express" );
 const app = express();
 const { json } = require( "body-parser" );
+const mongoose = require( "mongoose" );
 const cors = require( "cors" );
-const mongojs = require( "mongojs" );
-const db = mongojs( "ecommerce", [ "products" ] );
-const port = 7000;
+const port = 4000;
+const mongoUri = "mongodb://localhost:27017/ecommerce";
 
 //USES
 app.use( cors() );
 app.use( json() );
 app.use( express.static( `${ __dirname }/public` ) );
 
-//MIDDLEWARE
+// MONGOOSE CONNECTION TO MONGODB
+mongoose.connect( mongoUri );
 
-//ROUTES
-const productsRoutes = require( "./features/products/productsRoutes.js" );
-productsRoutes( app );
+mongoose.connection.once( "open", () => console.log( `Mongoose connected to MongoDB at ${ mongoUri }` ) );
+
+
+// MASTER ROUTES
+require( "./masterRoutes.js" )( app );
 
 
 //LISTEN

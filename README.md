@@ -12,7 +12,7 @@ eCommerce Project
 
 Build a backend using Node, Express, and MongoDB and connect it to a front-end Angular application
 
-During this project, you will solidify your understanding of the MongoDB API.  You will also be able to see how the database fits into the bigger picture of a full application. 
+During this project, you will solidify your understanding of the MongoDB API.  You will also be able to see how the database fits into the bigger picture of a full application.
 
 Most companies sell some sort of product and service. For this project we will simulate building an eCommerce application.  We will build this project over the course of the next three days.
 

@@ -1,19 +1,17 @@
-const mongojs = require( "mongojs" );
-const db = mongojs( "ecommerce", [ "products" ] );
+const Product = require( "./Product.js" );
 
 module.exports = {
   postProduct( req, res ) {
-    db.products.save( req.body, ( err, response ) => {
+    Product.create( req.body, ( err, response ) => {
       if ( err ) {
         return res.status( 500 ).json( err );
       } else {
-        return res.status( 200 ).json( response );
+        return res.status( 201 ).json( response );
       }
     } );
   }
   , getProducts( req, res ) {
-    let search = req.query;
-    db.products.find( search, ( err, response ) => {
+    Product.find( {}, ( err, response ) => {
       if ( err ) {
         return res.status( 500 ).json( err );
       } else {
@@ -22,39 +20,33 @@ module.exports = {
     } );
   }
   , getOneProduct( req, res ) {
-    let idObj = {
-        _id: mongojs.ObjectId( req.params.id )
-    };
-    db.products.findOne( idObj, ( err, response ) => {
+
+    Product.findById( req.params.id, ( err, response ) => {
         if( err ) {
             return res.status( 500 ).json( err );
         } else {
-            return res.json( response );
+            return res.status( 200 ).json( response );
         }
     } );
   }
   , putProducts( req, res ) {
-    let query = {
-        _id: mongojs.ObjectId( req.params.id )
-    };
-    db.products.update( query, req.body, ( err, response ) => {
+
+    Product.findByIdAndUpdate( req.params.id, { $set: req.body }, ( err, response ) => {
         if( err ) {
             return res.status( 500 ).json( err );
         } else {
-            return res.json( response );
+            return res.status( 200 ).json( response );
         }
     } );
   }
   , deleteProduct( req, res ) {
-    var query = {
-        _id: mongojs.ObjectId( req.params.id )
-    };
-    db.products.remove( query, function( err, response ){
+
+    Product.findByIdAndRemove( req.params.id , function( err, response ){
         if( err ) {
             return res.status( 500 ).json( err );
         } else {
-            return res.json( response );
+            return res.status( 200 ).json( response );
         }
-    });
+    } );
   }
 };

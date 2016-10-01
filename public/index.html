@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html ng-app="eCommerce">
+<html lang="en" ng-app="eCommerce">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
-  <body ng-controller="mainCtrl">
+  <body>
 
-
+<ui-view></ui-view>
 
 
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+
     <script src="./js/app.js"></script>
-    <script src="./js/mainCtrl.js"></script>
+    <script src="./js/controllers/homeCtrl.js"></script>
+    <script src="./js/controllers/adminCtrl.js"></script>
+    <script src="./js/services/homeService.js"></script>
+    <script src="./js/services/adminService.js"></script>
 
   </body>
 </html>

@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>JJ's Terrible Store</h1> <a ui-sref="admin"><button>Go to Admin</button></a>
+  <hr>
+  <div class="row">
+<div ng-repeat="product in products" class="col-md-3">
+<p>
+  Product: {{ product.title }}
+</p>
+<p>
+  Description: {{ product.description }}
+</p>
+<p>
+  ${{ product.price }}
+</p>
+<hr>
+</div>
+</div>
+
+</div>

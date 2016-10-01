@@ -1,0 +1,59 @@
+<div class="container">
+  <h1>Administrator Tools</h1>
+  <a ui-sref="home"><button>Return to Storefront</button></a>
+  <hr>
+  <div class="row">
+    <h3>Add New Product</h3>
+    <p>
+      Title
+    </p>
+    <input ng-model="product.title" type="text" placeholder="product title"></input>
+    <p>
+      Description
+    </p>
+    <input ng-model="product.description" type="text" placeholder="product description"></input>
+    <p>
+      Price
+    </p>
+    <input ng-model="product.price" type="text" placeholder="product price"></input>
+    <button ng-click="postProduct( product )">Add Product to Storefront</button>
+  </div>
+  <hr>
+  <div class="row">
+    <h3>Remove Product By ID#</h3>
+    <p>
+      Product ID#
+    </p><div>
+    <input ng-model="productB._id" type="text" placeholder="product ID#"></input>
+     <button style="{display: inline-block}" ng-click="checkProduct( productB )">Which Product is This?</button><p style="{display: inline-block}" ng-show="productB._id && whichProduct">
+       {{ whichProduct }}
+     </p></div>
+    <button ng-click="deleteProduct( product )">Remove Product from Storefront</button>
+  </div>
+  <hr>
+  <div class="row">
+    <h3>Change Product By ID#</h3>
+    <p>
+      Product ID#
+    </p><div>
+    <input ng-model="productC._id" type="text" placeholder="product ID#"></input>
+     <button style="{display: inline-block}" ng-click="checkProduct( productC )">Which Product is This?</button><p style="{display: inline-block}" ng-show="productC._id && whichProduct">
+       {{ whichProduct }}
+     </p></div>
+     <p>
+       Title
+     </p>
+     <input ng-model="productC.title" type="text" placeholder="product title"></input>
+     <p>
+       Description
+     </p>
+     <input ng-model="productC.description" type="text" placeholder="product description"></input>
+     <p>
+       Price
+     </p>
+     <input ng-model="productC.price" type="text" placeholder="product price"></input>
+    <button ng-click="changeProduct( productC )">Change Product Information</button>
+  </div>
+  <hr>
+
+</div>
